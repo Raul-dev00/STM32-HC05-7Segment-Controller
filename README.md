@@ -16,9 +16,11 @@ Modülü bilgisayarla eşleşecek şekilde yapılandırmak için şu adımlar iz
 - `AT+UART=9600,0,0` (Baud rate ayarı)
 - `AT+NAME=STM32_Display` (İsteğe bağlı isim)
 
-### 2. STM32 CubeMX Ayarları (Nedenleri ile)
+### 2. STM32 CubeMX Ayarları 
 - **USART1 (Asynchronous):** HC-05 ile ortak bir clock hattı olmadığı için standart asenkron haberleşme seçilmiştir.
 - **NVIC Interrupt:** Veri akışı sırasında display tarama (multiplexing) işleminin kesintiye uğramaması ve ekranda titreme (flickering) oluşmaması için UART kesmesi (Interrupt) aktif edilmiştir.
+- **GPIO Pull-Down:** HC-05 bağlantısı kesildiğinde veya kapandığında, yüzen (boşta kalan) sinyallerin hatalı UART kesmelerine yol açmasını önlemek için RX pini dahili Pull-down direnci ile yapılandırılmıştır.
+- **Baud Rate:** Veri çerçevelerinin senkronize edilmesi ve hatasız seri haberleşme sağlanması için, STM32 USART1 baud hızı HC-05 modülünün varsayılan çalışma frekansı olan 9600 bps ile eşleşecek şekilde yapılandırılmıştır.
 
 ## Yazılım Yapısı
 
