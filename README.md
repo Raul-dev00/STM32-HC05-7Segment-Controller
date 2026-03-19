@@ -37,3 +37,14 @@ Bilgisayar tarafında veriyi seri porta (Bluetooth üzerinden oluşturulan sanal
 2. STM32 kodunu yükleyin.
 3. Bilgisayardan terminal üzerinden Bluetooth bağlantısını gerçekleştirin.
 4. `python serial_sender.py` komutu ile veri gönderimini başlatın.
+
+## Donanım Notları
+
+### 1. Direnç Kullanımı
+STM32 GPIO pinlerini ve 5461BS segmentlerini yüksek akımdan korumak için her segment hattına seri olarak 220 ohm akım sınırlama direnci bağlanmıştır.
+
+### 2. USB-TTL ile HC-05 Yapılandırması 
+HC-05 modülü, STM32 sistemine entegre edilmeden önce bir USB-TTL dönüştürücü kullanılarak AT modunda yapılandırılmıştır.
+
+### 3. RX-TX Çapraz Bağlantı
+Başarılı bir seri haberleşme için, verinin vericiden alıcıya akmasını sağlamak amacıyla TX/RX pinleri çapraz (STM32 TX -> HC-05 RX ve tersi) bağlanmalıdır.
