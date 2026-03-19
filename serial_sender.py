@@ -1,10 +1,9 @@
 import serial
 import time
 import psutil
-#00:23:00:00:79:3F
 # --- AYARLAR ---
-# Ubuntu'da HC-05 bağlandığında genellikle /dev/rfcomm0 veya /dev/ttyUSB0 olur.
-# Bağlantıdan sonra 'ls /dev/tty*' komutu ile kontrol edebilirsin.
+# Ubuntu'da HC-05 bağlandığında genellikle /dev/rfcomm0 veya /dev/ttyUSB0 olmaktadır.
+# Bağlantıdan sonra 'ls /dev/tty*' komutu ile kontrol edilebilir.
 SERIAL_PORT = '/dev/rfcomm0'
 BAUD_RATE = 9600
 
