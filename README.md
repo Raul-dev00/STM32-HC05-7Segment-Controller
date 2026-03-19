@@ -38,6 +38,13 @@ Bilgisayar tarafında veriyi seri porta (Bluetooth üzerinden oluşturulan sanal
 3. Bilgisayardan terminal üzerinden Bluetooth bağlantısını gerçekleştirin.
 4. `python serial_sender.py` komutu ile veri gönderimini başlatın.
 
+## Bluetooth Connectivity & Terminal Setup (Linux/Ubuntu)
+HC-05 modülünü bilgisayarla eşleştirmek ve veri alışverişini başlatmak için aşağıdaki terminal komutları sırasıyla uygulanmıştır:
+1. Scan for devices: HC-05 modülünün MAC adresini tespit etmek için: `hcitool scan`
+2. Bind to Serial Port: Modülü /dev/rfcomm0 sanal seri portuna bağlamak için (MAC adresini kendi cihazınızla değiştirin): `sudo rfcomm bind 0 [HC05_MAC_ADDRESS]`
+3. Set Permissions: Python scriptinin veya terminalin porta erişebilmesi için gerekli izinleri tanımlamak: `sudo chmod 666 /dev/rfcomm0`
+4. Monitor Data: Gelen veriyi terminal üzerinden anlık olarak izlemek (Opsiyonel): `cat /dev/rfcomm0`
+   
 ## Donanım Notları
 
 ### 1. Direnç Kullanımı
